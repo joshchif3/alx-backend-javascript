@@ -1,7 +1,4 @@
-0x02. ES6 classes
-=================
 
-OOPJavaScriptES6
 
 -   By Joshua chifura, Engineering Manager at Uber Works
 
