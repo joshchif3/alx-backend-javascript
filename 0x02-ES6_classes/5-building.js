@@ -1,22 +1,26 @@
+/* eslint-disable no-underscore-dangle */
 export default class Building {
+  /**
+   * @param {number} sqft - size of building
+   *
+   * Implement a getter and setter for sqft
+   */
   constructor(sqft) {
+    this.sqft = sqft;
     if (this.constructor !== Building) {
-      const props = Object.getOwnPropertyNames(this.constructor.prototype);
-      if (!props.find((e) => e === 'evacuationWarningMessage')) {
-        throw new Error('Class extending Building must override evacuationWarningMessage');
+      if (typeof this.evacuationWarningMessage !== 'function') {
+        throw new Error(
+          'Class extending Building must override evacuationWarningMessage',
+        );
       }
     }
-    this._sqft = sqft;
   }
 
   get sqft() {
     return this._sqft;
   }
 
-  set sqft(sqft) {
-    if ((typeof sqft !== 'number') && (sqft instanceof Number)) {
-      throw new TypeError('Sqft must be a number');
-    }
-    this._sqft = sqft;
+  set sqft(value) {
+    this._sqft = value;
   }
 }
